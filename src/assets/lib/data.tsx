@@ -58,7 +58,7 @@ export const headerIntroData = {
       color: "main-btn",
     },
     {
-      name: "Projects",
+      name: "Pricing",
       label: {
         de: "Meine Projekte",
         en: "Examples",
