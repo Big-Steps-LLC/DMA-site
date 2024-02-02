@@ -28,6 +28,7 @@ import instorMockup from "../../assets/img/instor_mockup.webp";
 import silentmoonMockup from "../../assets/img/silentmoon_mockup.webp";
 import profilepicture from "../img/me2.webp";
 import caricon from "../../assets/icons/car-icon.svg";
+import network from "../../assets/icons/network.svg";
 import travelicon from "../../assets/icons/travel-icon.svg";
 import hardwareicon from "../../assets/icons/hardware-icon.svg";
 import nextjsiconwhite from "../../assets/icons/nextjsiconwhite.svg";
@@ -353,7 +354,7 @@ export const aboutMeData = {
   title: "Über mich",
   title_EN: "About Us",
   description: "Ein paar Codeschnippsel über mich",
-  description_EN: "Here is some customer progress",
+  description_EN: "How we will grow your Business",
   paragraphs_DE: [
     {
       title: "Die Schaltkreise meines Herzens",
@@ -378,20 +379,20 @@ export const aboutMeData = {
     {
       title: "Web Development",
       description: 
-        "Our digital marketing agency doesn’t just build websites; we create digital experiences that enhance your brand's online presence. Tailored to meet your specific business needs, our web development solutions ensure your site is not only visually appealing but also user-friendly and optimized for conversions.",
+        "Our digital marketing agency goes beyond mere website construction; we craft immersive digital experiences that significantly elevate your brand's online footprint. By tailoring our web development solutions to your unique business requirements, we guarantee a website that is not just visually striking but is also intuitive for users and finely tuned for higher conversions. Our approach ensures your online presence is powerful, with a focus on user engagement and seamless navigation, setting the stage for your digital success.",
       icon: hardwareicon,
     },
     {
       title: "Pay Per Click Ads",
       description: 
-        "Maximize your ROI with our expert Pay Per Click (PPC) advertising strategies. Our team specializes in creating targeted ad campaigns that connect your services with your ideal audience. From keyword research to ad creation and optimization, we handle every aspect to drive high-quality traffic and increase your conversions efficiently.",
+        "Leverage our expert Pay Per Click (PPC) advertising strategies to maximize your return on investment. Our team excels in devising targeted ad campaigns that precisely align your offerings with your desired audience. Through meticulous keyword research, creative ad creation, and continuous optimization, we manage every detail to funnel high-quality traffic to your site and boost your conversion rates effectively. Our PPC services are designed to deliver measurable results, ensuring every click contributes to your business goals.",
       icon: caricon,
     },
     {
       title: "SEO",
       description: 
-        "Elevate your online visibility with our SEO expertise. We understand the importance of ranking higher in search engine results and implement the latest SEO strategies to get you there. By optimizing your website’s content and structure, we ensure that your brand not only attracts but also retains your target audience, turning clicks into customers.",
-      icon: travelicon,
+        "Boost your brand's online visibility with our cutting-edge SEO services. Understanding the critical role of higher search engine rankings, our team applies the most effective SEO tactics to propel your website to the top. By optimizing your website’s content, enhancing its structure, and improving user experience, we help your brand not only to attract but also to engage and retain your target audience. Our strategic approach turns casual browsers into loyal customers, driving both traffic and revenue.",
+      icon: network,
     },    
   ],
 };

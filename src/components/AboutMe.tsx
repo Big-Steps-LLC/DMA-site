@@ -99,8 +99,7 @@ const AboutMe: React.FC = () => {
                 <div className="flex flex-row gap-10 max-lg:flex-col">
                   <div className="flex flex-col gap-4 items-center justify-between -mt-10 -mb-10 max-lg:flex-row max-lg:m-0">
                     <p className="text-white">
-                      <span className="text-orange">&lt;</span>h3
-                      <span className="text-orange">/&gt;</span>
+
                     </p>
                     <div className="flex justify-between items-center w-1 h-[100%] max-lg:flex-row max-lg:w-[10rem]  max-lg:bg-lightblue">
                       <div></div>
@@ -108,8 +107,7 @@ const AboutMe: React.FC = () => {
                       <div></div>
                     </div>
                     <p className="text-white">
-                      <span className="text-orange">&lt;</span>h3
-                      <span className="text-orange">/&gt;</span>
+
                     </p>
                   </div>
                   <div>
