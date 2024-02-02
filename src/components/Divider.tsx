@@ -39,35 +39,16 @@ const Divider: React.FC<DividerProps> = ({
   const widthStyle = widthStyles[direction];
 
   return (
-    <div style={directionStyle} className="relative">
-      <div
-        className="flex justify-end mb-10 "
-        style={{ height: heightStyle?.heights[0], ...spaceStyle }}
-      >
-        <div
-          className="h-full"
-          style={{
-            ...borderStyle,
-            borderRightWidth: thickness,
-            borderBottomWidth: thickness,
-            width: widthStyle?.widths[0],
-          }}
-        ></div>
+    
+    <div style={{ marginTop: '160px', ...directionStyle }} className="relative">
+      <div className="flex justify-end mb-10" style={{ height: heightStyle?.heights[0], ...spaceStyle }}>
+        <div className="h-full" style={{ ...borderStyle, borderRightWidth: thickness, borderBottomWidth: thickness, width: widthStyle?.widths[0] }}></div>
       </div>
-      <div
-        className="flex justify-end -mt-10"
-        style={{ height: heightStyle?.heights[1] }}
-      >
-        <div
-          className="h-full"
-          style={{
-            ...borderStyle,
-            borderLeftWidth: thickness,
-            width: widthStyle?.widths[1],
-          }}
-        ></div>
+      <div className="flex justify-end -mt-10" style={{ height: heightStyle?.heights[1] }}>
+        <div className="h-full" style={{ ...borderStyle, borderLeftWidth: thickness, width: widthStyle?.widths[1] }}></div>
       </div>
     </div>
+
   );
 };
 

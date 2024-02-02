@@ -175,7 +175,7 @@ export const projectsData = [
 export const liveTickerData = {
   content: {
     de: "Weitere Projekte auf Github",
-    en: "More Projects on Github",
+    en: "Get started now!",
   },
 } as const;
 
@@ -351,9 +351,9 @@ export const quotesData = [
 
 export const aboutMeData = {
   title: "Über mich",
-  title_EN: "About me",
+  title_EN: "About Us",
   description: "Ein paar Codeschnippsel über mich",
-  description_EN: "A few code snippets about me",
+  description_EN: "Here is some customer progress",
   paragraphs_DE: [
     {
       title: "Die Schaltkreise meines Herzens",
@@ -376,9 +376,9 @@ export const aboutMeData = {
   ],
   paragraphs_EN: [
     {
-      title: "The Circuits of My Heart",
+      title: "Revolutionizing Our Digital Presence",
       description:
-        "When I'm not navigating the digital world, I explore the fascinating realm of technology and hardware. Circuits and solder joints are like puzzle pieces to me in an exciting adventure.",
+        "",
       icon: hardwareicon,
     },
     {
@@ -403,7 +403,7 @@ export const contactData = {
   },
   description: {
     de: "Schreib mir eine Nachricht und ich melde mich bei dir.",
-    en: "Write me a message and I will get back to you.",
+    en: "Step 1: Fill out this form for personalized digital marketing plan",
   },
   inputfields: [
     {
@@ -423,7 +423,7 @@ export const contactData = {
       name: "email",
       placeholder: {
         de: "Deine E-Mail Adresse",
-        en: "Your E-Mail",
+        en: "E-Mail",
       },
       type: "email",
       validation: {
@@ -436,7 +436,7 @@ export const contactData = {
       name: "subject",
       placeholder: {
         de: "Deine Betreff",
-        en: "Your Subject",
+        en: "Company Name",
       },
       type: "text",
       validation: {
@@ -449,7 +449,7 @@ export const contactData = {
   textarea: {
     placeholder: {
       de: "Deine Nachricht",
-      en: "Your Message",
+      en: "Give us a detailed discription of your company",
     },
     name: "message",
     rows: 10,

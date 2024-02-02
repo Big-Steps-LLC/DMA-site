@@ -71,13 +71,13 @@ const ProjectSlider: React.FC = () => {
                 textAlign: "center",
               }}
             >
-              <p className="text-[--white] mt-16 mb-6">
-                <span className="text-[--orange]">&lt;</span>
-                {language === "DE" ? "Projekte" : "Projects"}
-                <span className="text-[--orange]">/&gt;</span>
+              <p className="text-[--white] mt-20 mb-6">
+                <span></span>
+                <b></b>
+                <span></span>
               </p>
-              <h2 className="text-[--white] mb-16">
-                {language === "DE" ? "Meine Projekte" : "My Projects"}
+              <h2 className="text-[--white] pt-10 pb-10">
+                {language === "DE" ? "Meine Projekte" : "Payment Plans"}
               </h2>
             </motion.div>
             <Swiper

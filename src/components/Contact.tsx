@@ -189,17 +189,13 @@ ${name}${lastUpdatedField === "name" ? (cursorBlink ? "|" : " ") : ""}
               textAlign: "center",
             }}
           >
-            <p className="text-[--black] mb-6">
-              <span className="text-[--orange]">&lt;</span>
-              {language === "DE" ? contactData.title.de : contactData.title.en}
-              <span className="text-[--orange]">/&gt;</span>
-            </p>
+         
 
-            <h2 className="text-[--black] text-center">
-              {language === "DE"
-                ? contactData.description.de
-                : contactData.description.en}
-            </h2>
+          <h2 className="text-[--black] text-center" style={{ marginTop: '80px' }}>
+            {language === "DE"
+              ? contactData.description.de
+              : contactData.description.en}
+          </h2>
           </motion.div>
         </div>
         <div className="flex flex-row justify-center items-start px-32 pt-32 mb-32 max-lg:flex-col max-lg:p-10">

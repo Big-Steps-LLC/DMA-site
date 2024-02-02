@@ -44,6 +44,8 @@ const AboutMe: React.FC = () => {
               scale: scaleProgess,
               opacity: opacityProgess,
               textAlign: "left",
+              marginTop: "30px", // Adjust value as needed
+              marginLeft: "20px",
             }}
           >
             <p className="text-[--black] mb-6">
@@ -54,7 +56,7 @@ const AboutMe: React.FC = () => {
 
             <h2 className="text-[--black] text-center max-lg:text-left break-words">
               {language === "DE"
-                ? aboutMeData.description
+                ? aboutMeData.description// Customer progress text
                 : aboutMeData.description_EN}
             </h2>
           </motion.div>
