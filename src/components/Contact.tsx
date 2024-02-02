@@ -32,6 +32,7 @@ const Contact: React.FC = () => {
   const scaleProgess = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
   const opacityProgess = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
 
+
   const notifySentForm: React.FormEventHandler<HTMLFormElement> = async (e) => {
     setError(null);
     console.log(error);
@@ -62,30 +63,7 @@ const Contact: React.FC = () => {
     setCursor(`${fieldName}${cursor}`);
   };
 
-  const wordWrap = (
-    text: string,
-    maxLineLength: number,
-    indentation: string
-  ) => {
-    const words = text.split(" ");
-    let lines: string[] = [];
-    let currentLine = "";
 
-    words.forEach((word) => {
-      if (currentLine.length + word.length <= maxLineLength) {
-        currentLine += word + " ";
-      } else {
-        lines.push(currentLine.trim());
-        currentLine = `${indentation}${word} `;
-      }
-    });
-
-    if (currentLine) {
-      lines.push(currentLine.trim());
-    }
-
-    return lines.join("\n");
-  };
 
   const handleInputChange = (
     e:
@@ -119,57 +97,12 @@ const Contact: React.FC = () => {
     };
   }, []);
 
-  const codeSnippet = `
-import  { useState } from "react";
-
-// 🌈 Spreading Stardust: 
-// Crafting Cosmic Email 🌌
-
-const [sender, setSender] = "${name}${
+  const codeSnippet = `${name}${
     lastUpdatedField === "name" ? (cursorBlink ? "|" : " ") : ""
-  }🚀";
-const [recipient, setRecipient] = "${email}${
-    lastUpdatedField === "email" ? (cursorBlink ? "|" : " ") : ""
-  }📧";
-const [subject, setSubject] = \n"${subject}${
-    lastUpdatedField === "subject" ? (cursorBlink ? "|" : " ") : ""
-  }✨";
-const [message, setMessage] = 
-\`Hello, intrepid traveler! 👋\n
-Across the cosmos, a message for you:\n
-"${wordWrap(message, 40, " ")}${
-    lastUpdatedField === "message" ? (cursorBlink ? "|" : " ") : ""
-  }"\n
-Wishing you stardust dreams,\n
-${name}${lastUpdatedField === "name" ? (cursorBlink ? "|" : " ") : ""}
-\``;
+  }\n
+Get ready to grow your business!\n`;
 
-  //   const codeSnippet2 = `
-  // // 🚀 Initiating Quantum Email Transmission 🪐
-  // const launchEmail = async () => {
-  //   try {
-  //     const response = await fetch('https://alpaycelik.dev/send',{
-  //     method: 'POST',
-  //     headers: {'Content-Type': 'application/json'},
-  //     body: JSON.stringify({
-  //      sender,
-  //      recipient,
-  //      subject,
-  //      message
-  //     })
-  //    });
 
-  //    if (response.ok) {
-  //    console.log('🌌 Transmission successful!');
-  //    } else {
-  //    console.error('🌠 Cosmic glitch encountered...');
-  //    }
-  //   } catch (error) {
-  //   console.error('🌪 Quantum disturbance detected:', error);
-  //   }
-  // };
-  // // 🚀 Ready for Liftoff? 🛸
-  // launchEmail();`;
 
   return (
     <React.Fragment>
