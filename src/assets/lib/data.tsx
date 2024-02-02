@@ -45,7 +45,7 @@ export const headerIntroData = {
   subtitle: " ",
   description: {
     de: "Ich bin Alpay, ein Fullstack-Entwickler mit dem Ziel, meine Karriere voranzutreiben und an inspirierenden Projekten teilzunehmen. Hier präsentiere ich meine Arbeiten und meine Leidenschaft für die Webentwicklung. Lassen Sie uns gemeinsam digitale Lösungen gestalten und die Zukunft formen!",
-    en: "Boost your business's online presence with Big Steps, your gateway to cutting-edge digital marketing. We specialize in tailored SEO, social media marketing, and comprehensive digital strategies to elevate your brand and drive results. Partner with us for a journey towards unparalleled digital success!",
+    en: "Boost your business's online presence with Big Steps, your gateway to cutting-edge digital marketing. We specialize in websites built with tailored SEO, social media marketing, and comprehensive digital strategies to elevate your brand and drive results. Partner with us for a journey towards unparalleled digital success!",
   },
   buttons: [
     {
@@ -376,23 +376,23 @@ export const aboutMeData = {
   ],
   paragraphs_EN: [
     {
-      title: "Revolutionizing Our Digital Presence",
-      description:
-        "",
+      title: "Web Development",
+      description: 
+        "Our digital marketing agency doesn’t just build websites; we create digital experiences that enhance your brand's online presence. Tailored to meet your specific business needs, our web development solutions ensure your site is not only visually appealing but also user-friendly and optimized for conversions.",
       icon: hardwareicon,
     },
     {
-      title: "On the Fast Lane of Life",
-      description:
-        "Besides coding, I like to be on the fast lane - in the truest sense of the word. Cars are my passion, and I enjoy being on unknown roads with powerful machines.",
+      title: "Pay Per Click Ads",
+      description: 
+        "Maximize your ROI with our expert Pay Per Click (PPC) advertising strategies. Our team specializes in creating targeted ad campaigns that connect your services with your ideal audience. From keyword research to ad creation and optimization, we handle every aspect to drive high-quality traffic and increase your conversions efficiently.",
       icon: caricon,
     },
     {
-      title: "The Joy of Discovery as a Life Motto",
-      description:
-        "My journey as a web developer is only a part of my life path. I live by the motto that the adventure only begins when you leave the familiar behind. Discovering new places and cultures is my form of creative inspiration.",
+      title: "SEO",
+      description: 
+        "Elevate your online visibility with our SEO expertise. We understand the importance of ranking higher in search engine results and implement the latest SEO strategies to get you there. By optimizing your website’s content and structure, we ensure that your brand not only attracts but also retains your target audience, turning clicks into customers.",
       icon: travelicon,
-    },
+    },    
   ],
 };
 
