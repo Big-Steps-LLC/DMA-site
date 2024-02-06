@@ -10,8 +10,14 @@ import { useTheme } from "../context/theme-context";
 import { motion, useScroll, useTransform } from "framer-motion";
 import "react-toastify/dist/ReactToastify.css";
 
+
+const apiBaseUrl = import.meta.env.VITE_BASEURL;
+console.log("API Base URL:", apiBaseUrl);
+
 const Contact: React.FC = () => {
-  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || "";
+
+  
+
 
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -22,7 +28,6 @@ const Contact: React.FC = () => {
   const { ref } = useSectionInView("Contact");
   const { language } = useLanguage();
   const { theme } = useTheme();
-  const [error, setError] = useState<string | any>(null);
 
   const animationReference = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -33,31 +38,43 @@ const Contact: React.FC = () => {
   const opacityProgess = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
 
 
+  
+  
+  
+
   const notifySentForm: React.FormEventHandler<HTMLFormElement> = async (e) => {
-    setError(null);
-    console.log(error);
-
     e.preventDefault();
+  
+    // Define the object with an index signature
+    const formDataObj: Record<string, FormDataEntryValue> = {};
+    
+    // Populate the object with form data
     const data = new FormData(e.currentTarget);
-
+    for (let [key, value] of data.entries()) {
+      formDataObj[key] = value;
+    }
+  
     try {
-      const response = await axios.post(apiBaseUrl, data);
+      // Directly send the object without converting to JSON string
+      const formDataJSON = JSON.stringify(formDataObj);
+      const response = await axios.post(`${apiBaseUrl}/send-email`, formDataJSON, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
       console.log(response);
-      if (language === "DE") {
-        toast.success(toastMessages.successEmailSent.de);
-      } else {
-        toast.success(toastMessages.successEmailSent.en);
-      }
+  
+      // Display success toast message based on the language
+      const successMessage = language === "DE" ? toastMessages.successEmailSent.de : toastMessages.successEmailSent.en;
+      toast.success(successMessage);
     } catch (error) {
-      console.log(error);
-      if (language === "DE") {
-        toast.error(toastMessages.failedEmailSent.de);
-      } else {
-        toast.error(toastMessages.failedEmailSent.en);
-      }
-      setError("An Error occured, try again later");
+      // Display error toast message based on the language
+      const errorMessage = language === "DE" ? toastMessages.failedEmailSent.de : toastMessages.failedEmailSent.en;
+      toast.error(errorMessage);
     }
   };
+  
+  
 
   const handleInputFocus = (fieldName: string) => {
     setCursor(`${fieldName}${cursor}`);

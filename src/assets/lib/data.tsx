@@ -404,7 +404,7 @@ export const contactData = {
   },
   description: {
     de: "Schreib mir eine Nachricht und ich melde mich bei dir.",
-    en: "Step 1: Fill out this form for personalized digital marketing plan",
+    en: "Step 1: Fill out this form for a personalized digital marketing plan",
   },
   inputfields: [
     {
@@ -487,16 +487,16 @@ export const contactData = {
 
 export const toastMessages = {
   loadingProject: {
-    de: "🦄 Die Live Demo wird gleich geöffnet. Server werden gestartet...",
-    en: "🦄 The live demo will open shortly. Starting servers...",
+    de: " Die Live Demo wird gleich geöffnet. Server werden gestartet...",
+    en: " The live demo will open shortly. Starting servers...",
   },
   successEmailSent: {
-    de: "🦄 Vielen Dank für deine Email. Ich werde mich schnellstmöglich bei dir melden",
-    en: "🦄 Thank you for your email. I will get back to you as soon as possible",
+    de: " Vielen Dank für deine Email. Ich werde mich schnellstmöglich bei dir melden",
+    en: " Thank you for your message. We will get back to you as soon as possible",
   },
   failedEmailSent: {
-    de: "🦄 Leider hat der Versand deiner Email nicht geklappt. Bitte versuche es später noch einmal",
-    en: "🦄 Unfortunately the sending of your email did not work. Please try again later",
+    de: " Leider hat der Versand deiner Email nicht geklappt. Bitte versuche es später noch einmal",
+    en: " Unfortunately the sending of your email did not work. Please try again later",
   },
   failedValidationName: {
     de: "Bitte gebe deinen Namen ein",
