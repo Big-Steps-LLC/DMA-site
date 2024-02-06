@@ -2,7 +2,6 @@ require('dotenv').config();
 
 const express = require('express');
 const sgMail = require('@sendgrid/mail');
-const cors = require('cors');
 const bodyParser = require('body-parser');
 const app = express();
 const port = process.env.PORT || 3001;
@@ -13,20 +12,7 @@ app.use(express.json());
 app.use(bodyParser.json());
 sgMail.setApiKey(key);
 
-const corsOptions = {
-    origin: function (origin, callback) {
-      const allowedOrigins = ['http://192.168.1.178:5173', 'http://localhost:5173'];
-      if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-        callback(null, true);
-      } else {
-        callback(new Error('CORS policy violation'));
-      }
-    },
-    methods: ['GET', 'POST'],
-    allowedHeaders: ['Content-Type'],
-};
-  
-app.use(cors(corsOptions));
+
   
 
 app.post('/send-email', async (req, res) => {
