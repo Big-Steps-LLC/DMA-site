@@ -4,6 +4,7 @@ const https = require('https');
 const axios = require('axios');
 const fs = require('fs');
 const express = require('express');
+const cors = require('cors');
 const sgMail = require('@sendgrid/mail');
 const bodyParser = require('body-parser');
 
@@ -30,7 +31,7 @@ const credentials = {
 };
 
 // Define routes
-app.post('/send-email', async (req, res) => {
+app.post(':443/send-email', async (req, res) => {
     const formData = req.body;
     const htmlBody = `
       <p>Name: ${formData.name}</p>

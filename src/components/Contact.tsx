@@ -14,12 +14,7 @@ import "react-toastify/dist/ReactToastify.css";
 const apiBaseUrl = import.meta.env.VITE_BASEURL;
 console.log("API Base URL:", apiBaseUrl);
 
-
 const Contact: React.FC = () => {
-
-
-
-
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [subject, setSubject] = useState<string>("");
@@ -38,28 +33,24 @@ const Contact: React.FC = () => {
   const scaleProgess = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
   const opacityProgess = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
 
-
-  const protocol = "https";
-  const host = "54.226.102.184";
-  const port = "443";
-  const path = "/send-email";
-  const apiUrlString = `${protocol}://${host}:${port}${path}`;
-
-  
-  
-
-  const notifySentForm: React.FormEventHandler<HTMLFormElement> = async (e) => {
+  const notifySentForm: React.FormEventHandler<HTMLFormElement> = async (
+    e
+  ) => {
     e.preventDefault();
   
+
+    const protocol = "https";
+    const host = "54.226.102.184";
+    const port = "443"; 
+    const path = "/send-email";
+    const apiUrlString = `${protocol}://${host}:${port}${path}`;
     const formDataObj: Record<string, FormDataEntryValue> = {};
     const data = new FormData(e.currentTarget);
   
     for (let [key, value] of data.entries()) {
-      // Example of basic sanitization, adapt based on your data requirements
       formDataObj[key] = sanitizeInput(value);
     }
   
-    // Example of simple validation, adapt according to your needs
     if (!validateFormData(formDataObj)) {
       toast.error("Please correct the form data.");
       return;
@@ -67,7 +58,7 @@ const Contact: React.FC = () => {
   
     try {
       const formDataJSON = JSON.stringify(formDataObj);
-      console.log("_________________", formDataJSON, "++++++++++++++++++++");
+
       const response = await axios.post(apiUrlString, formDataJSON, {
         headers: { 'Content-Type': 'application/json' },
       });
@@ -81,10 +72,14 @@ const Contact: React.FC = () => {
       toast.error(errorMessage);
     }
   };
+
+
+  
+
+
   
   function sanitizeInput(value: FormDataEntryValue): string | FormDataEntryValue {
     if (typeof value === 'string') {
-
       return value.replace(/</g, "&lt;").replace(/>/g, "&gt;");
     }
     return value;
@@ -192,7 +187,7 @@ Get ready to grow your business!\n`;
           </motion.div>
         </div>
         <div className="flex flex-row justify-center items-start px-32 pt-32 mb-32 max-lg:flex-col max-lg:p-10">
-          <div className="w-1/2  bg-[--darkblue] text-[--white] flex flex-col justify-center items-start gap-24 rounded-2xl p-20 border-solid border-[0.4rem] border-[--lightblue] hover:border-orange duration-500 transition-all  quote-outer-container text-left max-lg:hidden cursor-progress">
+          <div className="w-1/34 md:w-1/3 bg-[--darkblue] text-[--white] flex flex-col justify-center items-start gap-10 rounded-2xl p-8 md:p-20 border-solid border-[0.4rem] border-[--lightblue] hover:border-orange duration-500 transition-all quote-outer-container text-left max-lg:hidden cursor-progress">
             <Highlight
               code={codeSnippet}
               language="tsx"

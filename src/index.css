@@ -26,9 +26,9 @@
   --white: #ffffff;
   --icewhite: #ebebeb;
   --grey: #5d5d5d;
-  --lightblue: #9daaf2;
-  --darkblue: #1a2238;
-  --blackblue: #0c1220;
+  --lightblue: #0a6369;
+  --darkblue: #0a6369;
+  --blackblue: #0a191f;
   --orange: #ff6a3d;
   --box-shadow-color: inherit;
   --transparent: transparent;
@@ -441,40 +441,22 @@ a {
     transform: translatey(0rem);
   }
 }
-.wave {
-  animation-name: wave-animation;
-  animation-duration: 2.5s;
-  animation-iteration-count: infinite;
-  transform-origin: 70% 70%;
+.shimmer {
+  animation: shimmer-animation 2s infinite;
+  background: linear-gradient(to right, #ffffff 20%, #f0f0f0 50%, #ffffff 80%);
+  background-size: 200% 100%;
   display: inline-block;
 }
 
-@keyframes wave-animation {
+@keyframes shimmer-animation {
   0% {
-    transform: rotate(0deg);
-  }
-  10% {
-    transform: rotate(14deg);
-  }
-  20% {
-    transform: rotate(-8deg);
-  }
-  30% {
-    transform: rotate(14deg);
-  }
-  40% {
-    transform: rotate(-4deg);
-  }
-  50% {
-    transform: rotate(10deg);
-  }
-  60% {
-    transform: rotate(0deg);
+    background-position: -200% 0;
   }
   100% {
-    transform: rotate(0deg);
+    background-position: 200% 0;
   }
 }
+
 
 .popup-overlay {
   background: rgba(0, 0, 0, 0.5);

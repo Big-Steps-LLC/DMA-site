@@ -63,7 +63,7 @@ const AboutMe: React.FC = () => {
         </div>
         <div className="flex flex-row justify-center gap-6 items-center pl-32 pr-32 mb-16  max-lg:flex-col max-lg:p-16 min-[1921px]:px-[45rem] min-[1921px]:mb-48">
           <article className="pl-60 max-lg:p-0">
-            <img src={me} alt={me} />
+            <img src={me} alt={me} className="about-me-image" />
           </article>
           <Swiper
             spaceBetween={100}
@@ -77,11 +77,11 @@ const AboutMe: React.FC = () => {
             }}
             modules={[Autoplay, Pagination, Navigation]}
             onAutoplayTimeLeft={onAutoplayTimeLeft}
-            className="w-1/2 pt-32 relative z-2 pr-20 pb-32 pl-20 max-lg:w-full max-lg:pt-16 max-lg:pb-16 max-lg:pl-0 max-lg:pr-0 min-[1921px]:w-1/2"
+            className="w-full pt-32 relative z-2 pr-20 pb-32 pl-20 max-lg:w-full max-lg:pt-16 max-lg:pb-16 max-lg:pl-0 max-lg:pr-0 min-[1921px]:w-full"
           >
             {paragraphs.map((paragraph, index) => (
               <SwiperSlide
-                className="bg-[--darkblue] text-[--white] flex flex-col justify-center items-start gap-24 rounded-2xl p-20 border-solid border-[0.4rem] border-[--lightblue] hover:border-orange duration-500 transition-all text-left max-lg:p-10 cursor-grab"
+                className="bg-[--darkblue] text-[--white] flex flex-col justify-center items-start gap-24 rounded-2xl p-7 border-solid border-[0.4rem] border-[--lightblue] hover:border-orange duration-500 transition-all text-left max-lg:p-10 cursor-grab"
                 key={index}
               >
                 <div className="flex gap-6 flex-row justify-start items-center max-lg:flex-col max-lg:justify-center max-lg:text-center ">
@@ -98,17 +98,13 @@ const AboutMe: React.FC = () => {
                 </div>
                 <div className="flex flex-row gap-10 max-lg:flex-col">
                   <div className="flex flex-col gap-4 items-center justify-between -mt-10 -mb-10 max-lg:flex-row max-lg:m-0">
-                    <p className="text-white">
-
-                    </p>
+                    <p className="text-white"></p>
                     <div className="flex justify-between items-center w-1 h-[100%] max-lg:flex-row max-lg:w-[10rem]  max-lg:bg-lightblue">
                       <div></div>
                       <div className="w-[0.5rem] bg-[--lightblue] h-[100%] max-lg:w-10  max-lg:bg-lightblue max-lg:h-[0.25rem]"></div>
                       <div></div>
                     </div>
-                    <p className="text-white">
-
-                    </p>
+                    <p className="text-white"></p>
                   </div>
                   <div>
                     <p className="text-white text-4xl">
