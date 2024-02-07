@@ -14,9 +14,10 @@ import "react-toastify/dist/ReactToastify.css";
 const apiBaseUrl = import.meta.env.VITE_BASEURL;
 console.log("API Base URL:", apiBaseUrl);
 
+
 const Contact: React.FC = () => {
 
-  
+
 
 
   const [name, setName] = useState<string>("");
@@ -38,41 +39,83 @@ const Contact: React.FC = () => {
   const opacityProgess = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
 
 
-  
+  const protocol = "https";
+  const host = "54.226.102.184";
+  const port = "443";
+  const path = "/send-email";
+  const apiUrlString = `${protocol}://${host}:${port}${path}`;
+
   
   
 
   const notifySentForm: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
   
-    // Define the object with an index signature
     const formDataObj: Record<string, FormDataEntryValue> = {};
-    
-    // Populate the object with form data
     const data = new FormData(e.currentTarget);
+  
     for (let [key, value] of data.entries()) {
-      formDataObj[key] = value;
+      // Example of basic sanitization, adapt based on your data requirements
+      formDataObj[key] = sanitizeInput(value);
+    }
+  
+    // Example of simple validation, adapt according to your needs
+    if (!validateFormData(formDataObj)) {
+      toast.error("Please correct the form data.");
+      return;
     }
   
     try {
-      // Directly send the object without converting to JSON string
       const formDataJSON = JSON.stringify(formDataObj);
-      const response = await axios.post(`${apiBaseUrl}/send-email`, formDataJSON, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
+      console.log("_________________", formDataJSON, "++++++++++++++++++++");
+      const response = await axios.post(apiUrlString, formDataJSON, {
+        headers: { 'Content-Type': 'application/json' },
       });
       console.log(response);
   
-      // Display success toast message based on the language
       const successMessage = language === "DE" ? toastMessages.successEmailSent.de : toastMessages.successEmailSent.en;
       toast.success(successMessage);
     } catch (error) {
-      // Display error toast message based on the language
+      console.error(error);
       const errorMessage = language === "DE" ? toastMessages.failedEmailSent.de : toastMessages.failedEmailSent.en;
       toast.error(errorMessage);
     }
   };
+  
+  function sanitizeInput(value: FormDataEntryValue): string | FormDataEntryValue {
+    if (typeof value === 'string') {
+
+      return value.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+    return value;
+  }
+  
+
+  function validateFormData(formDataObj: Record<string, FormDataEntryValue>): boolean {
+    // Example validation rules
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const requiredFields = ['email', 'name']; // Add more required fields as needed
+  
+    for (const field of requiredFields) {
+      const value = formDataObj[field];
+      if (!value || typeof value !== 'string' || value.trim() === '') {
+        toast.error(`${field} is required.`);
+        return false;
+      }
+    }
+  
+    // Specific field validation
+    if (typeof formDataObj['email'] === 'string' && !emailRegex.test(formDataObj['email'])) {
+      toast.error("Invalid email format.");
+      return false;
+    }
+  
+    // Add more field-specific validations as necessary
+  
+    return true; // All validations passed
+  }
+  
+  
   
   
 
