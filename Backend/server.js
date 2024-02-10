@@ -1,8 +1,6 @@
 // Import required modules
 require('dotenv').config();
-const https = require('https');
-const axios = require('axios');
-const fs = require('fs');
+const http = require('http');
 const express = require('express');
 const cors = require('cors');
 const sgMail = require('@sendgrid/mail');
@@ -11,27 +9,14 @@ const bodyParser = require('body-parser');
 // Create express app
 const app = express();
 
-
-
 // Set up middleware
 app.use(express.json());
 app.use(bodyParser.json());
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-const phrase = process.env.TEST;
-
-// Load SSL/TLS certificate and private key
-const privateKeyPath = './certs/private-key.pem';
-const certificatePath = './certs/certificate.pem';
-const privateKey = fs.readFileSync(privateKeyPath, 'utf8');
-const certificate = fs.readFileSync(certificatePath, 'utf8');
-const credentials = {
-  key: privateKey,
-  cert: certificate,
-  passphrase: phrase 
-};
 
 // Define routes
-app.post(':443/send-email', async (req, res) => {
+app.post('/send-email', async (req, res) => {
+    console.log("api has been hit");
     const formData = req.body;
     const htmlBody = `
       <p>Name: ${formData.name}</p>
@@ -59,11 +44,12 @@ app.post(':443/send-email', async (req, res) => {
     }
 });
 
-// Define port for HTTPS server
-const httpsPort = process.env.HTTPS_PORT || 443;
+// Define port for HTTP server
+const httpPort = process.env.HTTP_PORT || 8080;
 
-// Start HTTPS server
-const httpsServer = https.createServer(credentials, app);
-httpsServer.listen(httpsPort, () => {
-    console.log(`HTTPS server is running on port ${httpsPort}`);
+// Start HTTP server
+const httpServer = http.createServer(app);
+httpServer.listen(httpPort, () => {
+    console.log(`HTTP server is running on port ${httpPort}`);
 });
+

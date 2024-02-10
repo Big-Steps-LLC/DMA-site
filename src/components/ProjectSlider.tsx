@@ -98,7 +98,7 @@ const ProjectSlider: React.FC = () => {
               {projectsData.map((project, index: number) => (
                 <SwiperSlide
                   key={index}
-                  className="quote-outer-container bg-[--darkblue] text-[--white] flex flex-row justify-between rounded-2xl p-20 text-left max-lg:hidden"
+                  className="quote-container bg-gray-800 text-white flex justify-between rounded-xl p-5 md:p-10 lg:p-20"
                 >
                   <div className="w-[55%] flex flex-col gap-12 justify-between">
                     <h2>{project.title}</h2>

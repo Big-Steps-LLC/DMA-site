@@ -33,17 +33,19 @@ const Contact: React.FC = () => {
   const scaleProgess = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
   const opacityProgess = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
 
-  const notifySentForm: React.FormEventHandler<HTMLFormElement> = async (
-    e
-  ) => {
+
+
+
+
+
+  const notifySentForm: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
   
 
     const protocol = "https";
-    const host = "54.226.102.184";
-    const port = "443"; 
-    const path = "/send-email";
-    const apiUrlString = `${protocol}://${host}:${port}${path}`;
+    const host = "192.168.1.178";
+    const port = "8443"; 
+    const apiUrlString = `${protocol}://${host}:${port}/send-email`;
     const formDataObj: Record<string, FormDataEntryValue> = {};
     const data = new FormData(e.currentTarget);
   
@@ -59,18 +61,23 @@ const Contact: React.FC = () => {
     try {
       const formDataJSON = JSON.stringify(formDataObj);
 
+      console.log("Form data JSON:", formDataJSON);
+      console.log("API URL:", apiUrlString);
+
       const response = await axios.post(apiUrlString, formDataJSON, {
         headers: { 'Content-Type': 'application/json' },
       });
-      console.log(response);
+
+      console.log("This is what the api responded: ", response);
   
       const successMessage = language === "DE" ? toastMessages.successEmailSent.de : toastMessages.successEmailSent.en;
       toast.success(successMessage);
     } catch (error) {
-      console.error(error);
+      console.error("Error occurred while sending email:", error); // Log the error for debugging purposes
+  
       const errorMessage = language === "DE" ? toastMessages.failedEmailSent.de : toastMessages.failedEmailSent.en;
       toast.error(errorMessage);
-    }
+  }  
   };
 
 
